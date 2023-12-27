@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="dns-prefetch" href="//fonts.bunny.net">
+    <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Simple Adventure </title>
+</head>
+<body>
+    <header>
+        <a href="#" class="brand"> <img src="/logo.png" width="120px" style="margin-bottom:-30px;"><small style="margin-left: -120px; font-size: 8pt; color:#317494">Journey Beyond Boundaries</small>  </a>
+        <div class="menu-btn"></div>
+        <div class="navigation">
+            <div class="navigation-items">
+                <a href="#">Home</a>
+                <a href="#">About</a>
+                <a href="#">Explore</a>
+                <a href="#">contact</a>
+                <a href="#">Gallery</a>
+
+            </div>
+        </div>
+    </header>
+
+    <Section class="home">
+        <video class="video-slide"src="/vedio2.mp4" autoplay muted loop></video>
+        <video class="video-slide " src="/vedio3.mp4" autoplay muted loop></video>
+        <video class="video-slide" src="/vedio1.mp4" autoplay muted loop></video>  
+        <video class="video-slide" src="/vedio4.mp4" autoplay muted loop></video>
+
+        <div class="content">
+            <h1>Wonderfull<br><span>Island</span></h1>
+            <p>
+                Sri Lanka, often referred to as the "Pearl of the Indian Ocean," is a tropical island nation located in South Asia. Known for its stunning landscapes, rich cultural heritage, and warm hospitality, Sri Lanka captivates visitors with a diverse tapestry of experiences.
+            </p><br>
+             <p id="para2" style="margin-top:-50px;"> Geographically, the island is surrounded by the Indian Ocean, offering picturesque coastlines with golden beaches and turquoise waters. Inland, lush greenery covers the landscape, including rolling hills, tea plantations, and dense rainforests. Sri Lanka is also home to a remarkable array of wildlife, with national parks and reserves protecting elephants, leopards, and a variety of bird species. <br>
+                The cultural heritage of Sri Lanka is deeply rooted and spans thousands of years. Ancient cities like Anuradhapura and Polonnaruwa showcase magnificent ruins, stupas, and temples, reflecting the country's rich history. The iconic Sigiriya Rock Fortress, a UNESCO World Heritage Site, stands as a testament to ancient architectural brilliance.
+             </p>
+            
+             <a href="#" id="read">Read more</a>
+             <a href="#" id="showless">Show less&nbsp;&nbsp;<i class="fas fa-chevron-up "></i></a>
+        </div>
+
+        <div class="media-icons">
+            <a href="#"><i class="fa-brands fa-facebook"></i></a>
+            <a href="#"><i class="fa-brands fa-twitter"></i></a>
+            <a href="#"><i class="fa-brands fa-instagram"></i><a>
+        </div>
+        <div class="silder-navigation">
+            <div class="nav-btn active"></div>
+            <div class="nav-btn"></div>
+            <div class="nav-btn"></div>
+            <div class="nav-btn"></div>
+        </div>
+    </Section>
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://kit.fontawesome.com/d7d0b3db86.js" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        const menuBtn = document.querySelector(".menu-btn");
+        const navigation = document.querySelector(".navigation");
+        const btns = document.querySelectorAll(".nav-btn");
+        const slides = document.querySelectorAll(".video-slide")
+        menuBtn.addEventListener("click", () => {
+            menuBtn.classList.toggle("active");
+            navigation.classList.toggle("active");
+        });
+
+        $(document).ready(function() {
+            $("#showless").hide();
+            $("#para2").hide();
+
+            $("#read").click(function() {
+                $(this).hide();
+                $("#para2").show();
+                $("#showless").show();
+            });
+
+            $("#showless").click(function() {
+                $(this).hide();
+                $("#para2").hide();
+                $("#read").show();
+            });
+        });
+
+        var silderNav = function(manual){
+           btns.forEach((btn) => {
+              btn.classList.remove("active");
+           });
+           
+           slides.forEach((slide) => {
+              slide.classList.remove("active");
+           });
+
+
+            btns[manual].classList.add("active");
+            slides[manual].classList.add("active");
+        }
+
+        btns.forEach((btn, i) => {
+            btn.addEventListener("click", () => {
+                silderNav(i);
+            });
+        });
+    </script>
+</body>
+</html>
